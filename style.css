@@ -171,6 +171,18 @@ nav a {
     padding-bottom: 200px;
 }
 
+.gallery > div {
+	display: flex;
+}
+
+.gallery img {
+	opacity: 0.8;
+}
+
+.gallery img:hover {
+	opacity: 1;
+}
+
 footer {
     background-color: #3b3b3b;
     color: #ebebeb;
