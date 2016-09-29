@@ -137,14 +137,26 @@ nav a {
 
 .featured-dishes {
 	max-width: 1100px;
-
     margin: 0 auto;
     clear: both;
     padding-bottom: 200px;
-
 }
 
 .featured-dishes > div {
+	display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.gallery-pages > img {
+    opacity: 0.7;
+}
+
+.gallery-pages > img.active {
+	opacity: 1;
+}
+
+.dishes-figures {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -175,8 +187,9 @@ nav a {
 	display: flex;
 }
 
-.gallery img {
+.gallery img {    
 	opacity: 0.8;
+    transition: opacity 0.3s;
 }
 
 .gallery img:hover {
