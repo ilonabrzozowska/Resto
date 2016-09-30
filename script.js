@@ -40,14 +40,53 @@ var menu = [
         name: "Nam eget dui Etiam.",
         ingredients: "Chicken, mozzarella cheese, onions.",
         price: "$35"
+    },
+    {
+        name: "Voluptate cillum fugiat.",
+        ingredients: "Cheese, tomato, mushrooms, onions.",
+        price: "$50"
+    },
+    {
+        name: "Metus varius laoreet.",
+        ingredients: "Chicken, mozzarella cheese, onions.",
+        price: "$62"
+    },
+    {
+        name: "Donec sodales magna.",
+        ingredients: "Tuna, Sweetcorn, Cheese.",
+        price: "$25"
+    },
+    {
+        name: "Saugue velit cursus.",
+        ingredients: "Pineapple, Minced Beef, Cheese.",
+        price: "$30"
+    },
+    {
+        name: "Arcu pede enim justo.",
+        ingredients: "Tuna, Sweetcorn, Cheese.",
+        price: "$45"
+    },
+    {
+        name: "Cras dapibussemper nisi.",
+        ingredients: "Pineapple, Minced Beef, Cheese.",
+        price: "$32"
+    },
+    {
+        name: "Quam semper libero.",
+        ingredients: "Cheese, tomato, mushrooms, onions.",
+        price: "$15"
+    },
+    {
+        name: "Nam eget dui Etiam.",
+        ingredients: "Chicken, mozzarella cheese, onions.",
+        price: "$35"
     }
 ];
 
-(function () {
+var displayMenu = function (start, end) {
     'use strict';
     var ul = document.createElement("ul"),
         i,
-        count = menu.length,
         li,
         div,
         div2,
@@ -59,7 +98,7 @@ var menu = [
 
     document.body.appendChild(ul);
 
-    for (i = 0; i < count; i += 1) {
+    for (i = start; i < end; i += 1) {
         li = document.createElement("li");
         div = document.createElement("div");
         div2 = document.createElement("div");
@@ -84,5 +123,27 @@ var menu = [
         ul.appendChild(li);
     }
     document.querySelector(".menu").insertBefore(ul, btn);
+};
 
+(function () {
+    'use strict';
+    displayMenu(0, 8);
 }());
+
+var btn = document.querySelector(".load-more-button");
+
+btn.addEventListener("click", function () {
+    'use strict';
+    var count = menu.length,
+        menuDishes = document.querySelector(".menu"),
+        ul = document.querySelector(".menu ul:last-of-type");
+    if (btn.classList.contains("menu-full")) {
+        btn.innerHTML = 'Load more <img src="img/arrow-down.png">';
+        btn.classList.remove("menu-full");
+        menuDishes.removeChild(ul);
+    } else {
+        displayMenu(8, count);
+        btn.classList.add("menu-full");
+        btn.innerHTML = 'Load less <img src="img/arrow-up.png">';
+    }
+});
